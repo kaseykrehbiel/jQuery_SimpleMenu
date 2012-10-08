@@ -1,0 +1,52 @@
+.simpleMenu {
+   font-size: 10pt;
+   font-family: arial;
+   margin: 0;
+   padding: 0;
+}
+
+.simpleMenu li a {
+   display: block;
+   background-color: #20548e;
+   padding: 5px 12px;
+   text-decoration: none;
+   border-right: 1px solid #ffffff;
+   color: #eaffed;
+   word-wrap: none;
+   white-space: nowrap;
+}
+
+.simpleMenu li a:hover {
+   background-color: #1a4473;
+}
+
+.simpleMenu li ul {
+   margin: 0;
+   padding: 0;
+   position: absolute;
+   visibility: hidden;
+   border-top: 1px solid #ffffff;
+}
+
+.simpleMenu li ul li {
+   float: none;
+   display: inline;
+}
+
+.simpleMenu li ul li a {
+   width: auto;
+   background-color: #9f1b1b;
+}
+
+.simpleMenu li ul li a:hover {
+   background-color: #7f1616;
+}
+
+.smhorizontal {
+   float: left;
+   list-style: none;
+}
+
+.simpleMenuVisible {
+   visibility: visible!important;
+}
