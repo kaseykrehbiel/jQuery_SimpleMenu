@@ -17,7 +17,7 @@ if(jQuery) {
       
       var showMenu = function(element) {
          $.ajax({
-            type: "POST",
+            type: "GET",
             url: $(e).data('source'),
             success: function(response) {
                if(response) {
@@ -67,10 +67,35 @@ if(jQuery) {
          if($(element).has('ul')) {
             $(element).children('ul').addClass('simpleMenuVisible');
          }
+         if($(element).parent().hasClass('simpleMenu')) {
+            shiftSubmenus(element);
+         }
+      }
+      
+      var shiftSubmenus = function(element) {
+         $(element).find('.simpleMenuArrow').remove();
+         var simpleMenuArrowLeft = $('<span class="simpleMenuArrow simpleMenuArrowLeft"> &laquo;</span>');
+         var simpleMenuArrowRight = $();
+         var submenuElements = $(element).find('ul').find('ul');
+         $(submenuElements).each(function() {
+            $(this).parent().children('a').append('<span class="simpleMenuArrow simpleMenuArrowRight"> &raquo;</span>');
+            //$(this).width($(this).children('a').first().width() + 'px');
+            var submenuWidth = $(this).width();
+            $(this).css('right', '').css('left', $(this).parent().parent().width() + 'px');
+            $(this).css('top', '-' + $(this).parent().height() + 'px');
+            if($(this).offset().left + submenuWidth > $(window).width()) {
+               $(this).parent().children('a').children('.simpleMenuArrow').remove();
+               $(this).parent().children('a').prepend('<span class="simpleMenuArrow simpleMenuArrowLeft"> &laquo;</span>');
+               $(this).css('left', '').css('right', '-100%');
+            }
+            $(this).css('z-index', '1');
+            $(this).css('margin', '0');
+            $(this).css('padding', '0');
+         });
+         $('ul').children('li').has('ul').css('position', 'relative');
       }
       
       showMenu($(e));
-      
    };
      
 

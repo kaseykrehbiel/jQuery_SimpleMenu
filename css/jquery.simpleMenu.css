@@ -5,9 +5,13 @@
    padding: 0;
 }
 
+.simpleMenu li {
+   position: relative;
+}
+
 .simpleMenu li a {
    display: block;
-   background-color: #20548e;
+   background-color: #214661;
    padding: 5px 12px;
    text-decoration: none;
    border-right: 1px solid #ffffff;
@@ -17,7 +21,7 @@
 }
 
 .simpleMenu li a:hover {
-   background-color: #1a4473;
+   background-color: #31668E;
 }
 
 .simpleMenu li ul {
@@ -26,6 +30,7 @@
    position: absolute;
    visibility: hidden;
    border-top: 1px solid #ffffff;
+   z-index: 1;
 }
 
 .simpleMenu li ul li {
@@ -35,11 +40,11 @@
 
 .simpleMenu li ul li a {
    width: auto;
-   background-color: #9f1b1b;
+   background-color: #214661;
 }
 
 .simpleMenu li ul li a:hover {
-   background-color: #7f1616;
+   background-color: #31668E;
 }
 
 .smhorizontal {
@@ -49,4 +54,15 @@
 
 .simpleMenuVisible {
    visibility: visible!important;
+}
+
+.simpleMenuArrow {
+   font-family: verdana;
+   font-weight: 700;
+}
+
+.simpleMenuArrowRight {
+   text-align: right;
+   float:right;
+   display:block;
 }
